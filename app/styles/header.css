@@ -4,6 +4,33 @@
     transition: background .3s ease, color .3s ease, box-shadow .3s ease;
 }
 
+.site-header--home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: transparent;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.site-header--home .header-right,
+.site-header--home .header-inner,
+.site-header--home .primary-menu a,
+.site-header--home .mobile-menu-icon {
+    color: #ffffff;
+}
+
+.site-header--home .primary-navigation li > a::after {
+    background: #ffffff;
+}
+
+.site-header--home .mobile-menu-icon,
+.site-header--home .mobile-menu-icon::before,
+.site-header--home .mobile-menu-icon::after {
+    background: #ffffff;
+}
+
 .site-header--dark {
     background: transparent;
     color: #ffffff;
