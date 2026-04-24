@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
@@ -11,12 +10,9 @@ const navItems = [
 ];
 
 export default function Header() {
-  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [phoneOpen, setPhoneOpen] = useState(false);
   const phoneWrapperRef = useRef<HTMLDivElement>(null);
-  const isHome = pathname === "/";
-  const logoSrc = isHome ? "/assets/logo/logo-white.svg" : "/assets/logo/logo-black-2.svg";
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -41,7 +37,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`site-header ${isHome ? "site-header--dark" : "site-header--white"}`}>
+    <header className="site-header site-header--white">
       <div className="header-inner">
         <div className="header-left">
           <button
@@ -54,7 +50,7 @@ export default function Header() {
           </button>
           <div className="desktop">
             <Link href="/" aria-label="Retour a l'accueil">
-              <img className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" />
+              <img className="site-logo" src="/assets/logo/logo-black-2.svg" alt="La Pauverdiere des Vignes" />
             </Link>
           </div>
         </div>
@@ -62,7 +58,7 @@ export default function Header() {
         <div className="header-center">
           <div className="mobile">
             <Link href="/" aria-label="Retour a l'accueil">
-              <img className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" />
+              <img className="site-logo" src="/assets/logo/logo-black-2.svg" alt="La Pauverdiere des Vignes" />
             </Link>
           </div>
         </div>
