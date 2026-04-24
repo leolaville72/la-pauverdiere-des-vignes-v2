@@ -8,11 +8,6 @@
     justify-content: center;
 }
 
-.site-header {
-    position: absolute;
-    z-index: 10;
-    color: white;
-}
 .hero-video {
     position: absolute;
     inset: 0;
@@ -108,12 +103,15 @@
 }
 
 @keyframes hero-mouse-scroll {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(-50%, 0);
         opacity: 1;
     }
+
     50% {
-        transform: translate(-50%,2px);
+        transform: translate(-50%, 2px);
         opacity: 0.8;
     }
 }
@@ -220,7 +218,7 @@
     text-align: left;
 }
 
-.gite-card-capacity{
+.gite-card-capacity {
     font-size: 0.9rem;
     font-style: var(--font-p);
     font-weight: 400;
@@ -281,15 +279,17 @@
     }
 }
 
-.section-1, .section-2 {
+.section-1,
+.section-2 {
     padding: 5rem 0;
 }
 
-.section-1-icon{
+.section-1-icon {
     width: 70px;
     height: 70px;
     margin-bottom: 20px;
 }
+
 .section-1-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -374,7 +374,7 @@
 }
 
 @media (max-width: 960px) {
-    .section-1-photo--large{
+    .section-1-photo--large {
         width: 70%;
     }
 
@@ -388,8 +388,8 @@
     }
 
     .section-1-photo--large img {
-            width: 100%;
-        }
+        width: 100%;
+    }
 
     .section-1-grid {
         grid-template-columns: 1fr;
@@ -410,9 +410,9 @@
         right: auto;
     }
 
-    .section-1-copy{
+    .section-1-copy {
         text-align: center;
-            margin: auto;
+        margin: auto;
     }
 }
 

@@ -8,8 +8,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000;
-    background: transparent;
+    z-index: 10;
     color: #ffffff;
     box-shadow: none;
 }
@@ -21,7 +20,7 @@
     color: #ffffff;
 }
 
-.site-header--home .primary-navigation li > a::after {
+.site-header--home .primary-navigation li>a::after {
     background: #ffffff;
 }
 
@@ -49,7 +48,7 @@
     color: #111111;
 }
 
-.site-header--white .primary-navigation li > a::after {
+.site-header--white .primary-navigation li>a::after {
     background: #111111;
 }
 
@@ -63,9 +62,10 @@
     border-color: rgba(0, 0, 0, 1);
 }
 
-.site-header--white .header-phone-button img{
+.site-header--white .header-phone-button img {
     filter: invert(0) brightness(1);
 }
+
 .site-header--white .header-phone-button:hover img,
 .site-header--white .header-phone-button.active img {
     filter: invert(1) brightness(1);
@@ -129,7 +129,7 @@ header .primary-navigation li {
     text-transform: uppercase;
 }
 
-header .primary-navigation li > a::after {
+header .primary-navigation li>a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -140,8 +140,8 @@ header .primary-navigation li > a::after {
     transition: width .3s ease-in-out;
 }
 
-header .primary-navigation li:hover > a::after,
-header .primary-navigation li.current-menu-item > a::after {
+header .primary-navigation li:hover>a::after,
+header .primary-navigation li.current-menu-item>a::after {
     width: 100%;
 }
 
@@ -263,13 +263,14 @@ header .primary-navigation li.current-menu-item > a::after {
 
 }
 
-.phone-contact-icon-wrapper{
+.phone-contact-icon-wrapper {
     display: flex;
     align-items: center;
     border: 1.5px solid var(--black-color);
     padding: 10px;
     border-radius: 50%;
 }
+
 .phone-contact-icon-placeholder {
     width: 20px;
     height: 20px;
@@ -389,7 +390,7 @@ header .primary-navigation li.current-menu-item > a::after {
     border-bottom: var(--border-discreet);
 }
 
-.mobile-primary-menu li a{
+.mobile-primary-menu li a {
     padding: 0 30px 15px 30px;
     display: block;
     width: 100%;
@@ -434,7 +435,8 @@ header .primary-menu li:not(:last-child)::after {
         display: inline-flex;
     }
 
-    .header-nav.desktop-menu, .header-reserve-button {
+    .header-nav.desktop-menu,
+    .header-reserve-button {
         display: none;
     }
 

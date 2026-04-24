@@ -14,25 +14,6 @@
   --border-discreet: 1px solid #f3f3f3;
   --text-color: #111111;
 
-  --ldg-bnb-background: #ffffff;
-  --ldg-bnb-border-radius: 0.42em;
-  --ldg-bnb-box-shadow: 0 24px 54px 0 rgba(0, 0, 0, 0.1);
-  --ldg-bnb-padding: 14px;
-  --ldg-bnb-input-background: #ffffff;
-  --ldg-bnb-button-border-radius: 3.58em;
-  --ldg-bnb-color-primary: #fac600;
-  --ldg-bnb-color-primary-lighter: #fde380;
-  --ldg-bnb-color-primary-darker: #7d6300;
-  --ldg-bnb-color-primary-contrast: #333333;
-  --ldg-component-calendar-cell-selection-bg-color: #fac600;
-  --ldg-component-calendar-cell-selection-color: #333333;
-  --ldg-component-calendar-cell-selected-bg-color: #fde380;
-  --ldg-component-calendar-cell-selected-color: #333333;
-  --ldg-semantic-color-primary: #fac600;
-  --ldg-semantic-color-primary-lighter: #fde380;
-  --ldg-semantic-color-primary-darker: #7d6300;
-  --ldg-semantic-color-primary-contrast: #333333;
-  --ldg-bnb-font-family: inherit;
 }
 
 * {

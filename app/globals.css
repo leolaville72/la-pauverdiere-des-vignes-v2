@@ -1,6 +1,8 @@
 @import "./styles/base.css";
 @import "./styles/header.css";
 @import "./styles/footer.css";
+@import "./styles/front-page.css";
+@import "./styles/front-page-animation.css";
 @import "./styles/hebergement.css";
 @import "./styles/gallery-modal.css";
 @import "./styles/les-gites.css";
