@@ -1,0 +1,146 @@
+.page-les-gites {
+    min-height: 100vh;
+}
+
+.les-gites-hero {
+    padding: 3rem 1.5rem;
+}
+
+.les-gites-hero__inner,
+.les-gites-list__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.les-gites-hero__inner p {
+    font-size: 1.05rem;
+    max-width: 700px;
+}
+
+.les-gites-list {
+    padding: 0 1.5rem 5rem;
+}
+
+.gite-card-horizontal {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 1.25rem;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #ece8df;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.gite-card-horizontal + .gite-card-horizontal {
+    margin-top: 1.25rem;
+}
+
+.gite-card-horizontal__image-link {
+    display: block;
+    min-height: 260px;
+    background: #efede8;
+}
+
+.gite-card-horizontal__image-link img,
+.gite-card-horizontal__placeholder {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+}
+
+.gite-card-horizontal__content {
+    padding: 1.4rem 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+}
+
+.gite-card-horizontal__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.gite-card-horizontal__header h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+}
+
+.gite-card-horizontal__header h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.gite-card-horizontal__capacity {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2c6e48;
+    background: #eaf6ef;
+    border-radius: 999px;
+    padding: 0.3rem 0.75rem;
+    white-space: nowrap;
+}
+
+.gite-card-horizontal__rating {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #5d5d5d;
+}
+
+.gite-card-horizontal__description {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.gite-card-recapitulatif {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.9rem;
+}
+
+.gite-card-recapitulatif__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    text-align: center;
+    padding: 0.75rem 0.4rem;
+    border-radius: 12px;
+    background: #f8f5ef;
+}
+
+.gite-card-recapitulatif__icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+.gite-card-recapitulatif__label {
+    font-size: 0.92rem;
+    line-height: 1.35;
+    color: #3c3c3c;
+}
+
+@media (max-width: 900px) {
+    .gite-card-horizontal__image-link img,
+        .gite-card-horizontal__placeholder{
+            width: 100%;
+        }
+    .gite-card-horizontal {
+        grid-template-columns: 1fr;
+    }
+
+    .gite-card-horizontal__image-link,
+    .gite-card-horizontal__image-link img,
+    .gite-card-horizontal__placeholder {
+        min-height: 220px;
+    }
+}

@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "Ogg";
+  src: url("/fonts/ogg-medium.ttf") format("truetype");
+  font-style: normal;
+}
+
+:root {
+  --font-p: "Jost", sans-serif;
+  --font-title: "Ogg", sans-serif;
+  --primary-color: #006400;
+  --secondary-color: #984634;
+  --black-color: #111111;
+  --background: #f7f7ea;
+  --border-discreet: 1px solid #f3f3f3;
+  --text-color: #111111;
+
+  --ldg-bnb-background: #ffffff;
+  --ldg-bnb-border-radius: 0.42em;
+  --ldg-bnb-box-shadow: 0 24px 54px 0 rgba(0, 0, 0, 0.1);
+  --ldg-bnb-padding: 14px;
+  --ldg-bnb-input-background: #ffffff;
+  --ldg-bnb-button-border-radius: 3.58em;
+  --ldg-bnb-color-primary: #fac600;
+  --ldg-bnb-color-primary-lighter: #fde380;
+  --ldg-bnb-color-primary-darker: #7d6300;
+  --ldg-bnb-color-primary-contrast: #333333;
+  --ldg-component-calendar-cell-selection-bg-color: #fac600;
+  --ldg-component-calendar-cell-selection-color: #333333;
+  --ldg-component-calendar-cell-selected-bg-color: #fde380;
+  --ldg-component-calendar-cell-selected-color: #333333;
+  --ldg-semantic-color-primary: #fac600;
+  --ldg-semantic-color-primary-lighter: #fde380;
+  --ldg-semantic-color-primary-darker: #7d6300;
+  --ldg-semantic-color-primary-contrast: #333333;
+  --ldg-bnb-font-family: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-p);
+  color: var(--black-color);
+  font-weight: 300;
+}
+
+p,
+ul,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  line-height: 1.05;
+}
+
+a {
+  color: inherit;
+}
+
+.classic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-p);
+  cursor: pointer;
+  color: #ffffff;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.button-blanc {
+  background-color: white;
+  color: var(--black-color);
+}
+
+.button-blanc:hover {
+  background-color: rgb(243, 243, 243);
+}
+
+.button--secondary {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.button--secondary:hover {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.site-logo {
+  width: 100px;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.mobile {
+  display: none;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+#lodgify-book-now-box,
+#lodgify-search-bar {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .site-logo {
+    width: 80px;
+  }
+}

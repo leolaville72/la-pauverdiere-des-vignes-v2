@@ -1,0 +1,421 @@
+.site-header {
+    width: 100%;
+    background: transparent;
+    transition: background .3s ease, color .3s ease, box-shadow .3s ease;
+}
+
+.site-header--dark {
+    background: transparent;
+    color: #ffffff;
+}
+
+.site-header--white {
+    background: #ffffff;
+    color: #111111;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.site-header--white .header-right,
+.site-header--white .header-inner,
+.site-header--white .primary-menu a,
+.site-header--white .mobile-menu-icon {
+    color: #111111;
+}
+
+.site-header--white .primary-navigation li > a::after {
+    background: #111111;
+}
+
+.site-header--white .mobile-menu-icon,
+.site-header--white .mobile-menu-icon::before,
+.site-header--white .mobile-menu-icon::after {
+    background: #111111;
+}
+
+.site-header--white .header-phone-button {
+    border-color: rgba(0, 0, 0, 1);
+}
+
+.site-header--white .header-phone-button img{
+    filter: invert(0) brightness(1);
+}
+.site-header--white .header-phone-button:hover img,
+.site-header--white .header-phone-button.active img {
+    filter: invert(1) brightness(1);
+}
+
+.site-header--white .header-phone-button:hover,
+.site-header--white .header-phone-button.active {
+    background: #111111;
+    border-color: #111111;
+}
+
+.site-header--white .header-reserve-button:hover {
+    background: rgba(0, 100, 0, 0.9);
+}
+
+.site-header--white .primary-menu a {
+    color: #111111;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-center {
+    flex: 1;
+    justify-content: center;
+}
+
+.header-right {
+    justify-content: flex-end;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.header-right-content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.header-phone-wrapper {
+    position: relative;
+}
+
+header .primary-navigation li {
+    position: relative;
+    text-transform: uppercase;
+}
+
+header .primary-navigation li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 0.5px;
+    background: #ffffff;
+    transition: width .3s ease-in-out;
+}
+
+header .primary-navigation li:hover > a::after,
+header .primary-navigation li.current-menu-item > a::after {
+    width: 100%;
+}
+
+.header-reserve-button {
+    background: var(--primary-color);
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.header-reserve-button:hover {
+    background: rgba(0, 100, 0, 0.9);
+}
+
+.header-phone-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background: transparent;
+    transition: background .2s ease, border-color .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-phone-button img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1) brightness(2);
+    transition: filter .2s ease;
+}
+
+.header-phone-button:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.header-phone-button:hover img,
+.header-phone-button.active img {
+    filter: invert(0) brightness(1);
+}
+
+.header-phone-button.active {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.phone-contact-overlay {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .2s ease;
+    z-index: 10001;
+    transform: translateY(-8px);
+    display: block;
+}
+
+.phone-contact-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.phone-contact-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    position: relative;
+    border: var(--border-discreet);
+}
+
+.phone-contact-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    color: #111111;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.phone-contact-title {
+    font-size: 1.2rem;
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: #111111;
+    letter-spacing: 1.3px;
+}
+
+.phone-contact-subtitle {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #111111;
+}
+
+.phone-contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.phone-contact-row:last-child {
+    margin-bottom: 0;
+}
+
+.phone-contact-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(0);
+
+}
+
+.phone-contact-icon-wrapper{
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--black-color);
+    padding: 10px;
+    border-radius: 50%;
+}
+.phone-contact-icon-placeholder {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f0f0f0;
+}
+
+.phone-contact-card a,
+.phone-contact-card span {
+    color: #111111;
+    text-decoration: none;
+    font-size: 0.98rem;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.mobile-menu-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    position: relative;
+}
+
+.mobile-menu-icon::before,
+.mobile-menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+}
+
+.mobile-menu-icon::before {
+    top: -7px;
+}
+
+.mobile-menu-icon::after {
+    top: 7px;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 70px;
+    justify-content: center;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    color: var(--black-color);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mobile-primary-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-primary-menu li {
+    margin: 0;
+}
+
+.primary-navigation {
+    display: flex;
+}
+
+.primary-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-primary-menu li {
+    margin: 0;
+    position: relative;
+    border-bottom: var(--border-discreet);
+}
+
+.mobile-primary-menu li a{
+    padding: 0 30px 15px 30px;
+    display: block;
+    width: 100%;
+    color: var(--black-color);
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.header-reserve-button-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background .2s ease;
+    font-size: 1.1rem;
+}
+
+header .primary-menu li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -.9rem;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.primary-menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
+    .header-nav.desktop-menu, .header-reserve-button {
+        display: none;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .header-inner {
+        padding: 1.5rem 1.25rem;
+    }
+}
