@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
-  { href: "/", label: "Accueil" },
-  { href: "/hebergement", label: "Hebergement" },
-  { href: "/les-gites", label: "Les gites" }
+  { href: "/la-loge", label: "La Loge (4-6p)" },
+  { href: "/le-cepage", label: "Le Cépage (9p)" },
+  { href: "/la-grande-pauverdiere", label: "L'ensemble (15p)" }
 ];
 
 export default function Header() {
@@ -60,7 +60,7 @@ export default function Header() {
         </div>
 
         <div className="header-center">
-          <div className="mobile">
+          <div className="tablette">
             <Link href="/" aria-label="Retour a l'accueil">
               <img className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" />
             </Link>
@@ -111,7 +111,7 @@ export default function Header() {
               </div>
             </div>
             <Link className="header-reserve-button classic-button" href="/les-gites">
-              Reserver
+              Réserver
             </Link>
           </div>
         </div>

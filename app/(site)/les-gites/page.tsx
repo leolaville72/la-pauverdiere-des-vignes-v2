@@ -15,14 +15,14 @@ export default function LesGitesPage() {
         <div className="les-gites-list__inner">
           {gites.map((gite) => (
             <article className="gite-card-horizontal" key={gite.slug}>
-              <Link className="gite-card-horizontal__image-link" href="/hebergement" aria-label={`Voir le detail de ${gite.title}`}>
+              <Link className="gite-card-horizontal__image-link" href={`/${gite.slug}`} aria-label={`Voir le detail de ${gite.title}`}>
                 <img src={gite.image} alt={gite.title} loading="lazy" />
               </Link>
 
               <div className="gite-card-horizontal__content">
                 <div className="gite-card-horizontal__header">
                   <h2>
-                    <Link href="/hebergement">{gite.title}</Link>
+                    <Link href={`/${gite.slug}`}>{gite.title}</Link>
                   </h2>
                   <span className="gite-card-horizontal__capacity">{gite.capacity}</span>
                 </div>
@@ -43,11 +43,11 @@ export default function LesGitesPage() {
                 </div>
 
                 <div className="flex-row gap-10">
-                  <Link className="classic-button button--secondary" href="/hebergement">
+                  <Link className="classic-button button--secondary" href={`/${gite.slug}`}>
                     Voir l'hebergement
                   </Link>
                   <a className="classic-button header-reserve-button" style={{ border: "2px solid var(--primary-color)" }} href={gite.bookingUrl}>
-                    Reserver
+                    Réserver
                   </a>
                 </div>
               </div>

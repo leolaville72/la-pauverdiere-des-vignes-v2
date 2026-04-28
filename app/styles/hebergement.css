@@ -12,10 +12,10 @@
     background-color: var(--background);
     z-index: -1;
 }
+
 .hebergement-hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -143,13 +143,14 @@
     flex-direction: column;
     gap: 2rem;
 }
-.hebergement-details{
+
+.hebergement-details {
     display: flex;
     gap: 2rem;
     padding: 0 6%;
 }
 
-.hebergement-details h2{
+.hebergement-details h2 {
     font-size: 1.5rem;
 }
 
@@ -239,10 +240,15 @@
     text-transform: uppercase;
 }
 
-.hebergement-prestation__text {
+.hebergement-prestation__list {
     margin: 0;
     color: rgba(17, 17, 17, 0.72);
     line-height: 1.6;
+    list-style: disc;
+}
+
+.hebergement-prestation__list li {
+    margin-bottom: 0.25rem;
 }
 
 .hebergement-equipements-modal {
@@ -312,27 +318,35 @@
     font-size: 1rem;
 }
 
-.hebergement-equipement-item__text {
+.hebergement-equipement-item__list {
+    margin: 0;
     color: rgba(17, 17, 17, 0.74);
     line-height: 1.6;
+    list-style: disc;
 }
 
-.hebergement-equipement-item__text > :first-child {
-    margin-top: 0;
+.hebergement-equipement-item__list li {
+    margin-bottom: 0.25rem;
 }
 
-.hebergement-equipement-item__text > :last-child {
-    margin-bottom: 0;
+.hebergement-booking-box{
+    min-width: 360px;
+    height: 200px;
+    background-color: aliceblue;
+}
+
+@media (max-width: 1280px){
+    .hebergement-hero-inner {
+            padding: 0 1rem;
+        }
 }
 
 @media (max-width: 1024px) {
     .hebergement-hero-background {
-            height: 90vh;
-        }
-
-    .hebergement-hero-inner {
-        padding: 0 1.25rem;
+        height: 90vh;
     }
+
+
 
     .hebergement-photo {
         min-height: 320px;
@@ -356,6 +370,17 @@
     .hebergement-prestations {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+        .hebergement-photo-group{
+            margin-top: 0;
+        }
+                .hebergement-photos {
+                    grid-template-columns: 1fr;
+                }
+        
+                .hebergement-photo-group {
+                    grid-template-rows: auto;
+                    grid-template-columns: 1fr 1fr;
+                }
 }
 
 @media (max-width: 640px) {

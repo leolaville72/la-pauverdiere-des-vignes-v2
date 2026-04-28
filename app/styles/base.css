@@ -35,9 +35,12 @@ body {
 p,
 ul,
 h1,
-h2,
 h3 {
   margin: 0;
+}
+
+h2{
+      margin: 0 0 1rem;
 }
 
 h1,
@@ -100,6 +103,10 @@ a {
   display: none;
 }
 
+.tablette {
+  display: none;
+}
+
 .flex-row {
   display: flex;
   align-items: center;
@@ -134,15 +141,24 @@ a {
 }
 
 @media (max-width: 1000px) {
-  .mobile {
-    display: block;
+  .tablette {
+    display: block !important;
   }
 
-  .desktop {
-    display: none;
+  .desktop{
+    display: none !important;
   }
 
   .site-logo {
     width: 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .mobile {
+    display: block !important;
+  }
+  .desktop-mobile {
+    display: none !important;
   }
 }

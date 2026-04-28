@@ -61,7 +61,7 @@ export default function HomePage() {
                 <h3>La Loge</h3>
                 <div className="gite-card-capacity">4 / 6 personnes</div>
               </div>
-              <Link href="/hebergement">
+              <Link href="/la-loge">
                 <img src="/assets/gite-loge.avif" alt="Gite La Loge" />
               </Link>
             </article>
@@ -71,7 +71,7 @@ export default function HomePage() {
                 <h3>L&apos;ensemble</h3>
                 <div className="gite-card-capacity">15 personnes</div>
               </div>
-              <Link href="/hebergement">
+              <Link href="/l-ensemble">
                 <img src="/assets/gite-ensemble.avif" alt="Gite L'ensemble" />
               </Link>
             </article>
@@ -81,7 +81,7 @@ export default function HomePage() {
                 <h3>Le Cepage</h3>
                 <div className="gite-card-capacity">9 personnes</div>
               </div>
-              <Link href="/hebergement">
+              <Link href="/le-cepage">
                 <img src="/assets/gite-cepage.avif" alt="Gite Le Cepage" />
               </Link>
             </article>
@@ -102,7 +102,7 @@ export default function HomePage() {
               <p>
                 Enfin, les amoureux de nature apprécieront les paysages typiques de la Sarthe, entre rivières, forêts et chemins de randonnée. Que ce soit à pied, à vélo ou simplement pour se détendre, les environs invitent à la découverte et à l’évasion.
               </p>
-              <Link href="/hebergement" className="classic-button button--secondary">
+              <Link href="/les-gites" className="classic-button button--secondary">
                 En savoir plus
               </Link>
             </div>

@@ -72,6 +72,20 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
     }
   }, [open]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (open) {
+      root.classList.add("gallery-scroll-lock");
+    } else {
+      root.classList.remove("gallery-scroll-lock");
+    }
+
+    return () => {
+      root.classList.remove("gallery-scroll-lock");
+    };
+  }, [open]);
+
   return (
     <div className={`gallery-modal${open ? " is-open" : ""}`} aria-hidden={!open}>
       <div className="gallery-modal__dialog" role="dialog" aria-modal="true" aria-label={`Galerie photo ${title}`}>
