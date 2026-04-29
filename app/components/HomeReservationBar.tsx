@@ -91,6 +91,10 @@ export default function HomeReservationBar() {
     return new Date(today.getFullYear(), today.getMonth(), 1);
   });
   const calendarPanelRef = useRef<HTMLDivElement>(null);
+  const reservationCardRef = useRef<HTMLElement>(null);
+  const stickyTriggerTopRef = useRef<number>(0);
+  const [isSticky, setIsSticky] = useState<boolean>(false);
+  const [stickyPlaceholderHeight, setStickyPlaceholderHeight] = useState<number>(0);
 
   const today = useMemo(() => startOfDay(new Date()), []);
   const currentMonthStart = useMemo(() => new Date(today.getFullYear(), today.getMonth(), 1), [today]);
@@ -109,6 +113,40 @@ export default function HomeReservationBar() {
     document.addEventListener("mousedown", onClickOutside);
     return () => {
       document.removeEventListener("mousedown", onClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const reservationCard = reservationCardRef.current;
+    if (!reservationCard || typeof window === "undefined") {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    // Mesurer la position initiale UNE SEULE FOIS (carte pas encore sticky)
+    const rect = reservationCard.getBoundingClientRect();
+    stickyTriggerTopRef.current = window.scrollY + rect.top;
+    setStickyPlaceholderHeight(rect.height);
+
+    const updateStickyState = () => {
+      if (mediaQuery.matches) {
+        setIsSticky(false);
+        return;
+      }
+
+      setIsSticky(window.scrollY + 10 >= stickyTriggerTopRef.current);
+    };
+
+    updateStickyState();
+    window.addEventListener("scroll", updateStickyState, { passive: true });
+    window.addEventListener("resize", updateStickyState);
+    mediaQuery.addEventListener("change", updateStickyState);
+
+    return () => {
+      window.removeEventListener("scroll", updateStickyState);
+      window.removeEventListener("resize", updateStickyState);
+      mediaQuery.removeEventListener("change", updateStickyState);
     };
   }, []);
 
@@ -201,10 +239,12 @@ export default function HomeReservationBar() {
   };
 
   return (
-    <aside className="home-reservation-card" aria-label="Recherche de disponibilite">
+    <>
+      {isSticky && <div className="home-reservation-sticky-placeholder" style={{ height: stickyPlaceholderHeight }} aria-hidden="true"></div>}
+      <aside ref={reservationCardRef} className={`home-reservation-card${isSticky ? " is-sticky" : ""}`} aria-label="Recherche de disponibilite">
       <form className="home-reservation-form" onSubmit={onSubmit}>
         <label className="home-reservation-field" htmlFor="home-gite-select">
-          <span>Gîte</span>
+          {/* <span>Gîte</span> */}
           <select
             id="home-gite-select"
             value={selectedGite}
@@ -226,10 +266,10 @@ export default function HomeReservationBar() {
         </label>
 
         <div className="home-reservation-field home-reservation-field--dates" ref={calendarPanelRef}>
-          <div className="home-reservation-field home-date-triggers">
+          {/* <div className="home-reservation-field home-date-triggers">
             <span>Arrivée</span>
             <span>Départ</span>
-          </div>
+          </div> */}
           <div className="home-date-triggers">
             <button
               className={`date-trigger${isCalendarOpen && calendarAnchor === "arrival" ? " is-active" : ""}`}
@@ -239,7 +279,7 @@ export default function HomeReservationBar() {
               aria-haspopup="dialog"
             >
               {/* <span className="date-trigger-label">Arrivée</span> */}
-              <span className="date-trigger-value">{arrivalDate ? dateFormatter.format(arrivalDate) : "--/--/----"}</span>
+              <span className="date-trigger-value">{arrivalDate ? dateFormatter.format(arrivalDate) : "Arrivée"}</span>
             </button>
 
             <button
@@ -250,7 +290,7 @@ export default function HomeReservationBar() {
               aria-haspopup="dialog"
             >
               {/* <span className="date-trigger-label">Depart</span> */}
-              <span className="date-trigger-value">{departureDate ? dateFormatter.format(departureDate) : "--/--/----"}</span>
+              <span className="date-trigger-value">{departureDate ? dateFormatter.format(departureDate) : "Départ"}</span>
             </button>
           </div>
 
@@ -332,7 +372,7 @@ export default function HomeReservationBar() {
         </div>
 
         <label className="home-reservation-field" htmlFor="home-people-input">
-          <span>Participants</span>
+          {/* <span>Participants</span> */}
           <select
             id="home-people-input"
             value={people}
@@ -365,6 +405,7 @@ export default function HomeReservationBar() {
           </p>
         )}
       </form>
-    </aside>
+      </aside>
+    </>
   );
 }

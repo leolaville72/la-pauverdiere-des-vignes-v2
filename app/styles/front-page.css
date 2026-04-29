@@ -426,6 +426,12 @@
 }
 
 @media (max-width: 620px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .h1-subtitle{
+        font-size: 20px;
+    }
     .section-1-grid {
         gap: 1.5rem;
     }
