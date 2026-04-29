@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 const navItems = [
-  { href: "/", label: "Accueil" },
-  { href: "/les-gites", label: "Les gites" }
+  { href: "/la-loge", label: "La Loge (4-6p)" },
+  { href: "/le-cepage", label: "Le Cépage (9p)" },
+  { href: "/la-grande-pauverdiere", label: "L'ensemble (15p)" }
 ];
 
 export default function Footer() {

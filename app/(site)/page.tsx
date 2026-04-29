@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HomeReservationBar from "@/app/components/HomeReservationBar";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,9 @@ export default function HomePage() {
               </div>
               <div className="hero-icon-placeholder"></div>
             </div>
+          </div>
+          <div className="nav-reservation">
+            <HomeReservationBar />
           </div>
         </section>
       </section>

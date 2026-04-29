@@ -1,0 +1,335 @@
+.nav-reservation {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(1rem, 4vh, 2.25rem);
+    transform: translateX(-50%);
+    z-index: 4;
+    min-width: 800px;
+}
+
+.home-reservation-card {
+    width: 100%;
+    background: rgba(247, 247, 234, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    padding: 1rem 1.1rem;
+}
+
+.home-reservation-title {
+    font-size: 1.3rem;
+    margin: 0 0 0.75rem;
+    color: var(--black-color);
+}
+
+.home-reservation-form {
+    display: grid;
+    grid-template-columns: 2fr 2fr 0.5fr 1fr;
+    gap: 0.7rem;
+    align-items: end;
+}
+
+.home-reservation-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--black-color);
+}
+
+.home-reservation-field>span {
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.home-reservation-field select,
+.home-reservation-field input,
+.date-trigger {
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid #d5d0c8;
+    border-radius: 11px;
+    background: #fff;
+    color: var(--black-color);
+    padding: 0.55rem 0.78rem;
+    font-size: 0.94rem;
+    font-family: var(--font-p);
+}
+
+.home-reservation-field--dates {
+    position: relative;
+}
+
+.home-date-triggers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.date-trigger {
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.12rem;
+}
+
+.date-trigger.is-active {
+    border-color: #9f6b54;
+    box-shadow: 0 0 0 2px rgba(159, 107, 84, 0.14);
+}
+
+.date-trigger-label {
+    font-size: 0.68rem;
+    color: #6f675c;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.date-trigger-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.calendar-popover {
+    position: absolute;
+    left: -100%;
+    bottom: calc(100% + 2rem);
+    width: min(760px, calc(100vw - 2.4rem));
+    border: 1px solid #ddd4c8;
+    border-radius: 12px;
+    background: #fff;
+    padding: 0.65rem;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+    z-index: 20;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.calendar-nav-button {
+    border: 0;
+    background-color: transparent;
+    color: #36312b;
+    border-radius: 999px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.calendar-nav-icon {
+    border-radius: 999px;
+}
+
+.calendar-nav-icon:hover {
+    background-color: #ececec7e;
+}
+
+.calendar-nav-button:disabled {
+    cursor: default;
+}
+
+.calendar-nav-button:disabled .calendar-nav-icon {
+    opacity: 0.3;
+}
+
+.calendar-months {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.calendar-month-title {
+    display: block;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.3rem;
+}
+
+.calendar-weekdays span {
+    text-align: center;
+    font-size: 0.74rem;
+    color: #6d675f;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.calendar-day,
+.calendar-day-empty {
+    min-height: 34px;
+}
+
+.calendar-day {
+    border: 1px solid #ece6dc;
+    font-family: var(--font-p);
+    font-weight: 500;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: #2f2f2f;
+}
+
+.calendar-day:hover:not(:disabled) {
+    border-color: #9f6b54;
+}
+
+.calendar-day:disabled {
+    cursor: default;
+    color: #ececec;
+    border: 0;
+}
+
+.calendar-day.is-in-range {
+    background: #f5e2d8;
+    border-color: #e6c4b2;
+}
+
+.calendar-day.is-selected {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+}
+
+.home-night-count {
+    margin: 0;
+    font-size: 0.83rem;
+    color: #5f574d;
+    grid-column: 1 / -1;
+}
+
+.home-search-button {
+    min-height: 46px;
+    border: none;
+    background: var(--primary-color);
+    white-space: nowrap;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.home-search-button:hover {
+    background: #005500;
+}
+
+.home-reservation-error {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #8f2e2e;
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1100px) {
+    .hero-content-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding-top: 4.5rem;
+    }
+
+    .nav-reservation {
+        margin: 1rem auto 1.8rem;
+        width: calc(100vw - 1.5rem);
+    }
+
+    /* .home-reservation-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    } */
+
+    /* .home-reservation-field--dates,
+    .home-search-button,
+    .home-night-count,
+    .home-reservation-error {
+        grid-column: 1 / -1;
+    } */
+    .calendar-popover{
+        left: 0;
+        bottom: calc(100% + 0.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-reservation{
+        position: static;
+        transform: none;
+        width: 90%;
+        min-width: 0;
+    }
+    .home-reservation-card {
+        border-radius: 14px;
+        padding: 0.8rem;
+    }
+
+    .home-reservation-title {
+        font-size: 1.35rem;
+    }
+
+    .home-reservation-form {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 0.85fr);
+        gap: 0.5rem;
+    }
+
+    .home-reservation-form label[for="home-gite-select"] {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .home-reservation-form label[for="home-people-input"] {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .home-reservation-form .home-reservation-field--dates {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .home-reservation-form .home-search-button {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+
+    .home-date-triggers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .home-reservation-field select,
+    .date-trigger,
+    .home-search-button {
+        min-height: 42px;
+    }
+
+    .calendar-popover {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .calendar-header .calendar-month-title:nth-of-type(2) {
+        display: none;
+    }
+
+    .calendar-months {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-months .calendar-month:nth-child(n + 2) {
+        display: none;
+    }
+}

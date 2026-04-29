@@ -132,6 +132,12 @@
     gap: 1rem;
     min-height: 0;
 }
+.hebergement-photo{
+    transition: all 0.3s ease;
+}
+.hebergement-photo:hover{
+    filter: brightness(0.92);
+}
 
 .hebergement-photo--small {
     height: 100%;
@@ -329,6 +335,46 @@
     margin-bottom: 0.25rem;
 }
 
+.hebergement-a-savoir__title{
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hebergement-a-savoir__title::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid #f8f8f8;
+    margin-top: 8px;
+}
+
+.hebergement-a-savoir-items{
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.hebergement-a-savoir-item {
+    max-width: 33%;
+}
+
+.hebergement-a-savoir-item__title{
+    font-weight: 500;
+}
+
+.hebergement-a-savoir-item__description{
+    margin-bottom: 8px;
+    padding: 0;
+    list-style-type: none
+}
+
+.hebergement-a-savoir-item__link{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .hebergement-booking-box{
     min-width: 360px;
     height: 200px;
@@ -407,5 +453,12 @@
 
     .hebergement-equipements-modal__dialog {
         padding: 1.5rem;
+    }
+    .hebergement-a-savoir-items{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hebergement-a-savoir-item {
+        max-width: 100%;
     }
 }

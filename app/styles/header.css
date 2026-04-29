@@ -199,7 +199,7 @@ header .primary-navigation li.current-menu-item>a::after {
     opacity: 0;
     pointer-events: none;
     transition: opacity .25s ease, transform .2s ease;
-    z-index: 10001;
+    z-index: 10;
     transform: translateY(-8px);
     display: block;
 }
@@ -326,7 +326,7 @@ header .primary-navigation li.current-menu-item>a::after {
     opacity: 0;
     pointer-events: none;
     transition: opacity .25s ease;
-    z-index: 9999;
+    z-index: 10000;
     display: flex;
     align-items: flex-start;
     padding-top: 70px;

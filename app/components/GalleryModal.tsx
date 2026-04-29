@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { GallerySection } from "@/app/data/gites";
+import ChevronIcon from "./ChevronIcon";
 
 type GalleryModalProps = {
   open: boolean;
@@ -156,7 +157,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
                 })
               }
             >
-              <img style={{ width: 12 }} src="/assets/chevron-left.svg" alt="Photo precedente" />
+              <ChevronIcon direction="left" color="#fff" size={30} />
             </button>
             <figure className="gallery-lightbox__figure">
               {lightboxIndex !== null ? (
@@ -178,7 +179,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
                 })
               }
             >
-              <img style={{ width: 12 }} src="/assets/chevron-right.svg" alt="Photo suivante" />
+              <ChevronIcon direction="right" color="#fff" size={30} />
             </button>
             <div className="gallery-lightbox__counter">
               {lightboxIndex !== null ? `${lightboxIndex + 1} / ${lightboxItems.length}` : ""}

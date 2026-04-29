@@ -23,7 +23,7 @@ export default function GiteDetailsPage({ gite, gallery, prestations, equipement
   }, [gallery, gite.image]);
 
   return (
-    <main className="page-hebergement">
+    <main className="page-hebergement" style={{marginBottom: "50px"}}>
       <div className="hebergement-hero-background"></div>
 
       <section className="hebergement-hero">
@@ -125,11 +125,38 @@ export default function GiteDetailsPage({ gite, gallery, prestations, equipement
                 Voir tous les equipements
               </button>
             </div>
+          <div className="hebergement-a-savoir">
+            <div className="hebergement-a-savoir__title">À savoir</div>
+            <div className="hebergement-a-savoir-items flex-row">
+              <div className="hebergement-a-savoir-item">
+                <div className="hebergement-a-savoir-item__title">Arrivée et départ</div>
+                <ul className="hebergement-a-savoir-item__description">
+                  <li>Parking disponible</li>
+                  <li>Arrivée à partir de 16h, départ avant 11h</li>
+                  <li>Arrivée autonome avec boîte à clés</li>
+                </ul>
+              </div>
+              <div className="hebergement-a-savoir-item">
+                <div className="hebergement-a-savoir-item__title">Politique d'annulation</div>
+                <ul className="hebergement-a-savoir-item__description">
+                  <li>Annulation gratuite jusqu'à 30 jours avant l'arrivée et partielle 7 jours avant le séjour</li>
+                </ul>
+                <Link className="hebergement-a-savoir-item__link" href="/">Consulter les conditions d'annulation</Link>
+              </div>
+              <div className="hebergement-a-savoir-item">
+                <div className="hebergement-a-savoir-item__title">Règlement intérieur</div>
+                <ul className="hebergement-a-savoir-item__description">
+                  <li>Non fumeur, animaux non admis.</li>
+                </ul>
+                <Link className="hebergement-a-savoir-item__link" href="/">Consulter les règles de séjour</Link>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
 
         <div>
-          <div style={{ position: "sticky", top: 20 }} className="hebergement-booking-box">
+          <div style={{ position: "sticky", top: 20 }} className="hebergement-booking-box desktop">
             <div>réservation</div>
           </div>
         </div>

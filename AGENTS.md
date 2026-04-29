@@ -44,6 +44,10 @@ This version has breaking changes. APIs, conventions, and file structure may dif
 - Ensuite UI de reservation branchee sur API.
 - Enfin ameliorations UX visuelles.
 
+## Languages textuel
+
+- Faire attention aux accents car nous sommes en Français
+
 ## Checklist avant livraison
 
 - Lancer `npm run lint`.

@@ -226,6 +226,7 @@
     transition: background 0.25s ease, transform 0.25s ease;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .gallery-lightbox__close:hover,
