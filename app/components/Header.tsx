@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -54,7 +55,7 @@ export default function Header() {
           </button>
           <div className="desktop">
             <Link href="/" aria-label="Retour a l'accueil">
-              <img className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" />
+              <Image className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" width={220} height={90} />
             </Link>
           </div>
         </div>
@@ -62,7 +63,7 @@ export default function Header() {
         <div className="header-center">
           <div className="tablette">
             <Link href="/" aria-label="Retour a l'accueil">
-              <img className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" />
+              <Image className="site-logo" src={logoSrc} alt="La Pauverdiere des Vignes" width={220} height={90} />
             </Link>
           </div>
         </div>
@@ -87,7 +88,7 @@ export default function Header() {
                 aria-label="Afficher le contact"
                 onClick={() => setPhoneOpen((value) => !value)}
               >
-                <img src="/assets/Phone.svg" alt="Telephone" />
+                <Image src="/assets/Phone.svg" alt="Telephone" width={18} height={18} />
               </button>
               <div className={`phone-contact-overlay${phoneOpen ? " open" : ""}`} aria-hidden={!phoneOpen}>
                 <div className="phone-contact-card">
@@ -95,7 +96,7 @@ export default function Header() {
                   <div className="phone-contact-subtitle">Contactez-nous</div>
                   <div className="phone-contact-row">
                     <div className="phone-contact-icon-wrapper">
-                      <img className="phone-contact-icon" src="/assets/Phone.svg" alt="Telephone" />
+                      <Image className="phone-contact-icon" src="/assets/Phone.svg" alt="Telephone" width={18} height={18} />
                     </div>
                     <a href="tel:+33000000000" style={{ letterSpacing: 0, textDecoration: "underline" }}>
                       +33 0 00 00 00 00
@@ -103,7 +104,7 @@ export default function Header() {
                   </div>
                   <div className="phone-contact-row">
                     <div className="phone-contact-icon-wrapper">
-                      <img className="phone-contact-icon" src="/assets/mail-3.svg" alt="Email" />
+                      <Image className="phone-contact-icon" src="/assets/mail-3.svg" alt="Email" width={18} height={18} />
                     </div>
                     <span style={{ letterSpacing: 0, textDecoration: "underline" }}>contact@domaine.com</span>
                   </div>

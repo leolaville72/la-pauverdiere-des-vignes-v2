@@ -4,6 +4,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import ChevronIcon from "./ChevronIcon";
 
+type HomeReservationBarProps = {
+  initialArrivee?: string;
+  initialDepart?: string;
+  initialVoyageurs?: string;
+  initialGite?: string;
+};
+
 type GiteOption = {
   value: string;
   label: string;
@@ -49,6 +56,32 @@ function toIsoDate(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+function parseIsoDate(value: string | null): Date | null {
+  if (!value) {
+    return null;
+  }
+
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) {
+    return null;
+  }
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const parsedDate = new Date(year, month - 1, day);
+
+  if (
+    parsedDate.getFullYear() !== year
+    || parsedDate.getMonth() !== month - 1
+    || parsedDate.getDate() !== day
+  ) {
+    return null;
+  }
+
+  return parsedDate;
+}
+
 // function getNightCount(arrivalDate: Date, departureDate: Date): number {
 //   const millisecondsPerDay = 1000 * 60 * 60 * 24;
 //   return Math.round((departureDate.getTime() - arrivalDate.getTime()) / millisecondsPerDay);
@@ -75,20 +108,43 @@ function getCalendarDaysForMonth(monthDate: Date): Array<Date | null> {
   return days;
 }
 
-export default function HomeReservationBar() {
+export default function HomeReservationBar({
+  initialArrivee,
+  initialDepart,
+  initialVoyageurs,
+  initialGite
+}: HomeReservationBarProps) {
   const router = useRouter();
-  const [selectedGite, setSelectedGite] = useState<string>("all");
-  const [people, setPeople] = useState<number>(2);
+  const initialToday = startOfDay(new Date());
+  const initialSelectedGite = GITE_OPTIONS.find((option) => option.value === initialGite)?.value ?? "all";
+  const initialMaxPeople = GITE_OPTIONS.find((option) => option.value === initialSelectedGite)?.maxPeople ?? 15;
+  const parsedInitialArrivalDate = parseIsoDate(initialArrivee ?? null);
+  const parsedInitialDepartureDate = parseIsoDate(initialDepart ?? null);
+  const hasValidInitialDateRange = Boolean(
+    parsedInitialArrivalDate
+    && parsedInitialDepartureDate
+    && parsedInitialArrivalDate.getTime() >= initialToday.getTime()
+    && parsedInitialDepartureDate.getTime() > parsedInitialArrivalDate.getTime()
+  );
+  const initialPeople = Number(initialVoyageurs);
+
+  const [selectedGite, setSelectedGite] = useState<string>(initialSelectedGite);
+  const [people, setPeople] = useState<number>(
+    Number.isInteger(initialPeople) && initialPeople >= 1 && initialPeople <= initialMaxPeople ? initialPeople : 2
+  );
 
   const maxPeople = GITE_OPTIONS.find((option) => option.value === selectedGite)?.maxPeople ?? 15;
-  const [arrivalDate, setArrivalDate] = useState<Date | null>(null);
-  const [departureDate, setDepartureDate] = useState<Date | null>(null);
+  const [arrivalDate, setArrivalDate] = useState<Date | null>(hasValidInitialDateRange ? parsedInitialArrivalDate : null);
+  const [departureDate, setDepartureDate] = useState<Date | null>(hasValidInitialDateRange ? parsedInitialDepartureDate : null);
   const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
   const [calendarAnchor, setCalendarAnchor] = useState<"arrival" | "departure">("arrival");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [displayMonth, setDisplayMonth] = useState<Date>(() => {
-    const today = new Date();
-    return new Date(today.getFullYear(), today.getMonth(), 1);
+    if (hasValidInitialDateRange && parsedInitialArrivalDate) {
+      return new Date(parsedInitialArrivalDate.getFullYear(), parsedInitialArrivalDate.getMonth(), 1);
+    }
+
+    return new Date(initialToday.getFullYear(), initialToday.getMonth(), 1);
   });
   const calendarPanelRef = useRef<HTMLDivElement>(null);
   const reservationCardRef = useRef<HTMLElement>(null);
@@ -135,7 +191,7 @@ export default function HomeReservationBar() {
         return;
       }
 
-      setIsSticky(window.scrollY + 10 >= stickyTriggerTopRef.current);
+      setIsSticky(window.scrollY >= stickyTriggerTopRef.current);
     };
 
     updateStickyState();

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import GalleryModal from "@/app/components/GalleryModal";
 import type { Equipement, GallerySection, GiteCard, Prestation } from "@/app/data/gites";
@@ -98,10 +99,12 @@ export default function GiteDetailsPage({ gite, gallery, prestations, equipement
                 {prestations.map((prestation) => (
                   <article className="hebergement-prestation" key={prestation.title}>
                     <div className="hebergement-prestation__header">
-                      <img
+                      <Image
                         className="hebergement-prestation__icon"
                         src={prestation.icon}
                         alt={prestation.title}
+                        width={28}
+                        height={28}
                         loading="lazy"
                       />
                       <h3 className="hebergement-prestation__title">{prestation.title}</h3>
@@ -137,11 +140,11 @@ export default function GiteDetailsPage({ gite, gallery, prestations, equipement
                 </ul>
               </div>
               <div className="hebergement-a-savoir-item">
-                <div className="hebergement-a-savoir-item__title">Politique d'annulation</div>
+                <div className="hebergement-a-savoir-item__title">Politique d&apos;annulation</div>
                 <ul className="hebergement-a-savoir-item__description">
-                  <li>Annulation gratuite jusqu'à 30 jours avant l'arrivée et partielle 7 jours avant le séjour</li>
+                  <li>Annulation gratuite jusqu&apos;à 30 jours avant l&apos;arrivée et partielle 7 jours avant le séjour</li>
                 </ul>
-                <Link className="hebergement-a-savoir-item__link" href="/">Consulter les conditions d'annulation</Link>
+                <Link className="hebergement-a-savoir-item__link" href="/">Consulter les conditions d&apos;annulation</Link>
               </div>
               <div className="hebergement-a-savoir-item">
                 <div className="hebergement-a-savoir-item__title">Règlement intérieur</div>

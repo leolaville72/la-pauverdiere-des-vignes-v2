@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import HomeReservationBar from "@/app/components/HomeReservationBar";
 
 export default function HomePage() {
@@ -30,14 +31,14 @@ export default function HomePage() {
           <div className="section-1-grid">
             <div className="section-1-visual">
               <div className="section-1-photo section-1-photo--large">
-                <img src="/assets/gite-cepage.avif" alt="Gite La Pauverdiere" />
+                <Image src="/assets/gite-cepage.avif" alt="Gite La Pauverdiere" width={1200} height={800} />
               </div>
               <div className="section-1-photo section-1-photo--small" style={{ bottom: "0%", right: "-4%", width: "44%" }}>
-                <img src="/assets/gite-loge.avif" alt="Terrasse du gite" />
+                <Image src="/assets/gite-loge.avif" alt="Terrasse du gite" width={1200} height={800} />
               </div>
             </div>
             <div className="section-1-copy">
-              <img className="section-1-icon" src="/assets/palmier-1.svg" alt="Palmier" />
+              <Image className="section-1-icon" src="/assets/palmier-1.svg" alt="Palmier" width={80} height={80} />
               <h2>Le decor ideal</h2>
               <p>
                 À 5 minutes de la Flèche au coeur de la campagne Sarthoise, notre gîte situé à Villaine-sous-Malicorne vous accueille dans un cadre paisible et chaleureux, idéal pour se ressourcer en famille ou entre amis. Profitez d’un environnement calme, propice à la détente, tout en restant proche des richesses de la région.
@@ -66,7 +67,7 @@ export default function HomePage() {
                 <div className="gite-card-capacity">4 / 6 personnes</div>
               </div>
               <Link href="/la-loge">
-                <img src="/assets/gite-loge.avif" alt="Gite La Loge" />
+                <Image src="/assets/gite-loge.avif" alt="Gite La Loge" width={1200} height={800} />
               </Link>
             </article>
 
@@ -76,7 +77,7 @@ export default function HomePage() {
                 <div className="gite-card-capacity">15 personnes</div>
               </div>
               <Link href="/l-ensemble">
-                <img src="/assets/gite-ensemble.avif" alt="Gite L'ensemble" />
+                <Image src="/assets/gite-ensemble.avif" alt="Gite L'ensemble" width={1200} height={800} />
               </Link>
             </article>
 
@@ -86,7 +87,7 @@ export default function HomePage() {
                 <div className="gite-card-capacity">9 personnes</div>
               </div>
               <Link href="/le-cepage">
-                <img src="/assets/gite-cepage.avif" alt="Gite Le Cepage" />
+                <Image src="/assets/gite-cepage.avif" alt="Gite Le Cepage" width={1200} height={800} />
               </Link>
             </article>
           </div>
@@ -95,7 +96,7 @@ export default function HomePage() {
         <section className="section-1">
           <div className="section-1-grid section-1-grid-reverse">
             <div className="section-1-copy">
-              <img className="section-1-icon" src="/assets/cocktail.svg" alt="Cocktail" />
+              <Image className="section-1-icon" src="/assets/cocktail.svg" alt="Cocktail" width={80} height={80} />
               <h2>Les alentours du gite</h2>
               <p>
                 Idéalement situé, notre gîte bénéficie d’un emplacement privilégié à proximité de La Flèche, une ville dynamique réputée pour son célèbre zoo et ses nombreuses activités pour toute la famille. Vous pourrez facilement profiter des commerces, restaurants et animations locales.
@@ -113,13 +114,13 @@ export default function HomePage() {
 
             <div id="section-1-visual" className="section-1-visual">
               <div className="section-1-photo section-1-photo--large section-1-photo--large-right">
-                <img src="/assets/la-fleche-1.jpg" alt="La Fleche" />
+                <Image src="/assets/la-fleche-1.jpg" alt="La Fleche" width={1200} height={800} />
               </div>
               <div className="section-1-photo section-1-photo--small" style={{ bottom: "-20%", right: "28%", width: "44%" }}>
-                <img src="/assets/abbaye-solesmes.webp" alt="Abbaye de Solesmes" />
+                <Image src="/assets/abbaye-solesmes.webp" alt="Abbaye de Solesmes" width={1200} height={800} />
               </div>
               <div className="section-1-photo section-1-photo--small" style={{ top: "40%", left: "-2%", width: "44%" }}>
-                <img src="/assets/zoo-la-fleche.jpg" alt="Zoo de La Fleche" />
+                <Image src="/assets/zoo-la-fleche.jpg" alt="Zoo de La Fleche" width={1200} height={800} />
               </div>
             </div>
           </div>

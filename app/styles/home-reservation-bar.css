@@ -27,15 +27,25 @@
     backdrop-filter: blur(5px);
     box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
     padding: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .home-reservation-card.is-sticky {
     position: fixed;
     top: 10px;
     left: 50%;
+    padding: 0.8rem;
     transform: translateX(-50%);
     width: min(800px, calc(100vw - 1.5rem));
     z-index: 100;
+    background-color: var(--background);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.2);
+}
+
+.home-reservation-card.is-sticky .home-reservation-field select,
+.home-reservation-card.is-sticky .home-reservation-field input,
+.home-reservation-card.is-sticky .date-trigger {
+    color: var(--black-color);
 }
 
 .home-reservation-card.is-sticky .calendar-popover {

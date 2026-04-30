@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   { href: "/la-loge", label: "La Loge (4-6p)" },
@@ -13,7 +14,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div style={{ width: 150, textAlign: "center", margin: "50px auto" }}>
         <Link href="/" title="La Pauverdiere des Vignes">
-          <img src="/assets/logo/logo-brown.svg" alt="Logo" />
+          <Image src="/assets/logo/logo-brown.svg" alt="Logo" width={150} height={60} />
         </Link>
       </div>
 

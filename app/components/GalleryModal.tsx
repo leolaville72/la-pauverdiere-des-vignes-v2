@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import type { GallerySection } from "@/app/data/gites";
 import ChevronIcon from "./ChevronIcon";
 
@@ -18,7 +19,10 @@ type LightboxItem = {
 
 export default function GalleryModal({ open, title, sections, onClose }: GalleryModalProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  let runningIndex = 0;
+  const handleClose = useCallback(() => {
+    setLightboxIndex(null);
+    onClose();
+  }, [onClose]);
 
   const lightboxItems = useMemo<LightboxItem[]>(() => {
     return sections.flatMap((section) =>
@@ -28,6 +32,12 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
       }))
     );
   }, [sections, title]);
+
+  const sectionStartIndices = useMemo(() => {
+    return sections.map((_, sectionIndex) => {
+      return sections.slice(0, sectionIndex).reduce((total, section) => total + section.images.length, 0);
+    });
+  }, [sections]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -41,7 +51,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
           return;
         }
 
-        onClose();
+        handleClose();
       }
 
       if (lightboxIndex === null) {
@@ -65,13 +75,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [lightboxIndex, lightboxItems.length, onClose, open]);
-
-  useEffect(() => {
-    if (!open) {
-      setLightboxIndex(null);
-    }
-  }, [open]);
+  }, [handleClose, lightboxIndex, lightboxItems.length, open]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -90,7 +94,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
   return (
     <div className={`gallery-modal${open ? " is-open" : ""}`} aria-hidden={!open}>
       <div className="gallery-modal__dialog" role="dialog" aria-modal="true" aria-label={`Galerie photo ${title}`}>
-        <button className="gallery-modal__close" type="button" aria-label="Fermer la galerie" onClick={onClose}>
+        <button className="gallery-modal__close" type="button" aria-label="Fermer la galerie" onClick={handleClose}>
           &times;
         </button>
         <div className="gallery-modal__header">
@@ -98,7 +102,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
           <h2 className="gallery-modal__title">{title}</h2>
         </div>
         <div className="gallery-modal__sections">
-          {sections.map((section) => {
+          {sections.map((section, sectionIndex) => {
             const imageCount = section.images.length;
             let gridClass = "gallery-modal__section-grid gallery-modal__section-grid--even";
 
@@ -115,8 +119,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
                 </div>
                 <div className={gridClass}>
                   {section.images.map((image, imageIndex) => {
-                    const flatIndex = runningIndex;
-                    runningIndex += 1;
+                    const flatIndex = sectionStartIndices[sectionIndex] + imageIndex;
                     return (
                       <figure className={`gallery-modal__item${imageIndex === 0 ? " gallery-modal__item--first" : ""}`} key={`${section.title}-${image}`}>
                         <button
@@ -124,7 +127,7 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
                           type="button"
                           onClick={() => setLightboxIndex(flatIndex)}
                         >
-                          <img src={image} alt={`${title} - ${section.title} - photo ${imageIndex + 1}`} />
+                          <Image src={image} alt={`${title} - ${section.title} - photo ${imageIndex + 1}`} width={1200} height={800} />
                         </button>
                       </figure>
                     );
@@ -160,11 +163,13 @@ export default function GalleryModal({ open, title, sections, onClose }: Gallery
               <ChevronIcon direction="left" color="#fff" size={30} />
             </button>
             <figure className="gallery-lightbox__figure">
-              {lightboxIndex !== null ? (
-                <img
+              {lightboxIndex !== null && lightboxItems[lightboxIndex] ? (
+                <Image
                   className="gallery-lightbox__image"
-                  src={lightboxItems[lightboxIndex]?.src}
-                  alt={lightboxItems[lightboxIndex]?.alt}
+                  src={lightboxItems[lightboxIndex].src}
+                  alt={lightboxItems[lightboxIndex].alt}
+                  width={1600}
+                  height={1066}
                 />
               ) : null}
             </figure>
